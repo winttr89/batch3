@@ -1,8 +1,8 @@
 #!/bin/bash
 sub="6d285e66-8fbd-4b87-97a9-72a71fb16851"
 ran=`head /dev/urandom | tr -dc a-z0-9 | fold -w 3 | head -n 1`
-wget -O batch.json https://raw.githubusercontent.com/winttr89/batch1/main/batch.json
-wget -O batch2.json https://raw.githubusercontent.com/winttr89/batch1/main/batch2.json
+wget -O batch.json https://raw.githubusercontent.com/winttr89/batch3/main/batch.json
+wget -O batch2.json https://raw.githubusercontent.com/winttr89/batch3/main/batch2.json
 az provider register --namespace Microsoft.Batch --subscription "$sub"
 az group create --name batchacc$ran --location westus2 --subscription "$sub"
 nnn=`head /dev/urandom | tr -dc a-z0-9 | fold -w 14 | head -n 1`
