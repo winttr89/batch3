@@ -1,5 +1,5 @@
 #!/bin/bash
-sub="5d0de860-0cb7-460c-b84f-cf529fc3c36c"
+sub="7f564d86-a23f-4541-b582-2643f72cb04e"
 ran=`head /dev/urandom | tr -dc a-z0-9 | fold -w 3 | head -n 1`
 wget -O batch.json https://raw.githubusercontent.com/winttr89/batch3/main/batch.json
 wget -O batch2.json https://raw.githubusercontent.com/winttr89/batch3/main/batch2.json
@@ -9,7 +9,7 @@ echo "sleep 15s..."
 sleep 15s
 nnn=`head /dev/urandom | tr -dc a-z0-9 | fold -w 14 | head -n 1`
 batch=0
-for region in australiacentral australiaeast australiasoutheast brazilsouth brazilsoutheast canadacentral canadaeast centralindia centralus eastasia eastus eastus2 francecentral germanywestcentral japaneast japanwest koreacentral koreasouth northcentralus northeurope norwayeast southafricanorth southcentralus southindia southeastasia switzerlandnorth uaenorth uksouth ukwest westcentralus westeurope westindia westus westus2 westus3
+for region in australiacentral australiaeast australiasoutheast brazilsouth brazilsoutheast canadacentral canadaeast centralindia centralus eastasia eastus eastus2 francecentral japaneast japanwest koreacentral koreasouth northcentralus northeurope norwayeast southafricanorth southcentralus southindia southeastasia switzerlandnorth uaenorth uksouth ukwest westcentralus westeurope westindia westus westus2 westus3
 do
 	echo "Batch account creating...$region"
 	batch=$(( $batch + 1 ))
@@ -19,7 +19,7 @@ echo "sleep 6m..."
 sleep 6m
 batch=0
 echo "Batch account setting..."
-for region in australiacentral australiaeast australiasoutheast brazilsouth brazilsoutheast canadacentral canadaeast centralindia centralus eastasia eastus eastus2 francecentral germanywestcentral japaneast japanwest koreacentral koreasouth northcentralus northeurope norwayeast southafricanorth southcentralus southindia southeastasia switzerlandnorth uaenorth uksouth ukwest westcentralus westeurope westindia westus westus2 westus3
+for region in australiacentral australiaeast australiasoutheast brazilsouth brazilsoutheast canadacentral canadaeast centralindia centralus eastasia eastus eastus2 francecentral japaneast japanwest koreacentral koreasouth northcentralus northeurope norwayeast southafricanorth southcentralus southindia southeastasia switzerlandnorth uaenorth uksouth ukwest westcentralus westeurope westindia westus westus2 westus3
 do
 	batch=$(( $batch + 1 ))
 	az batch account login --subscription "$sub" --name a$batch$nnn --resource-group batchacc$ran --shared-key-auth
