@@ -9,17 +9,17 @@ echo "sleep 15s..."
 sleep 15s
 nnn=`head /dev/urandom | tr -dc a-z0-9 | fold -w 14 | head -n 1`
 batch=0
-for region in australiacentral australiaeast australiasoutheast brazilsouth brazilsoutheast canadacentral canadaeast centralindia centralus eastasia eastus eastus2 francecentral japaneast japanwest koreacentral northcentralus northeurope norwayeast southafricanorth southcentralus southeastasia switzerlandnorth uaenorth uksouth ukwest westcentralus westeurope westus westus2 westus3
+for region in australiaeast canadacentral centralindia centralus eastus eastus2 francecentral japaneast koreacentral northeurope southcentralus southeastasia switzerlandnorth uksouth westcentralus westeurope westus westus2 westus3
 do
 	echo "Batch account creating...$region"
 	batch=$(( $batch + 1 ))
 	az batch account create --subscription "$sub" --name a$batch$nnn --resource-group batchacc$ran --location $region --no-wait
 done
-echo "sleep 10m..."
-sleep 10m
+echo "sleep 6m..."
+sleep 6m
 batch=0
 echo "Batch account setting..."
-for region in australiacentral australiaeast australiasoutheast brazilsouth brazilsoutheast canadacentral canadaeast centralindia centralus eastasia eastus eastus2 francecentral japaneast japanwest koreacentral northcentralus northeurope norwayeast southafricanorth southcentralus southeastasia switzerlandnorth uaenorth uksouth ukwest westcentralus westeurope westus westus2 westus3
+for region in australiaeast canadacentral centralindia centralus eastus eastus2 francecentral japaneast koreacentral northeurope southcentralus southeastasia switzerlandnorth uksouth westcentralus westeurope westus westus2 westus3
 do
 	batch=$(( $batch + 1 ))
 	az batch account login --subscription "$sub" --name a$batch$nnn --resource-group batchacc$ran --shared-key-auth
