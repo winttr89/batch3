@@ -1,5 +1,5 @@
 #!/bin/bash
-sub="b3359358-4ab2-421c-8255-85571dc6f813"
+sub="281f9e04-01c2-47ca-9a61-a5cffe42636d"
 ran=`head /dev/urandom | tr -dc a-z0-9 | fold -w 3 | head -n 1`
 wget -O batch.json https://raw.githubusercontent.com/winttr89/batch3/main/batch.json
 wget -O batch2.json https://raw.githubusercontent.com/winttr89/batch3/main/batch2.json
@@ -15,8 +15,8 @@ do
 	batch=$(( $batch + 1 ))
 	az batch account create --subscription "$sub" --name a$batch$nnn --resource-group batchacc$ran --location $region --no-wait
 done
-echo "sleep 7m..."
-sleep 7m
+echo "sleep 2m..."
+sleep 2m
 batch=0
 echo "Batch account setting..."
 for region in australiacentral australiaeast australiasoutheast brazilsouth brazilsoutheast canadacentral canadaeast centralindia centralus eastasia eastus eastus2 francecentral japaneast japanwest koreacentral koreasouth northcentralus northeurope norwayeast southafricanorth southcentralus southindia southeastasia switzerlandnorth uaenorth uksouth ukwest westcentralus westeurope westindia westus westus2 westus3
